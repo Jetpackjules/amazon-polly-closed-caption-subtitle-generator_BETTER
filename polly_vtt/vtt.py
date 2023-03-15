@@ -20,7 +20,7 @@ class VTT:
     def to_sentences(self, response):
         return [
             json.loads(sentence.decode("utf8"))
-            for sentence in response["AudioStream"].iter_lines()
+            for sentence in response["AudioStream"].read().decode("utf8").split("~")
         ]
 
     def format_vtt_time(self, msecs):
