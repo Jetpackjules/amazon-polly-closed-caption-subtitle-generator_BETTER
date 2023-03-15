@@ -11,7 +11,7 @@ class Polly:
             "Engine": "neural",
             "LanguageCode": "en-US",
             "OutputFormat": "pcm",
-            "SampleRate": "16000",
+            "SampleRate": "24000",
         }
 
     def connect(self):
