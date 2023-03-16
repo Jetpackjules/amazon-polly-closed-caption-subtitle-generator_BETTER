@@ -17,11 +17,12 @@ class VTT:
     def remove_ssml_tags(self, text):
         return re.sub(r"\<[^>]*>", "", text)
 
-    def to_sentences(self, response):
-        return [
-            json.loads(sentence.decode("utf8"))
-            for sentence in response["AudioStream"].iter_lines()
-        ]
+    def remove_ssml_tags(self, text):
+        text = re.sub(r'P<sub alias=" ">P', '', text)
+        text = re.sub(r'P</sub>', '', text)
+        text = re.sub(r"\<[^>]*>", "", text)
+        text = re.sub(r'~', '. ', text)
+        return text
 
     def format_vtt_time(self, msecs):
         minutes = math.floor(msecs / 60000)
