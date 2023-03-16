@@ -48,7 +48,9 @@ class Polly:
 
     def synthesize_speech_marks(self, **params):
         params["OutputFormat"] = "json"
-        params["SpeechMarkTypes"] = ("sentence",)
+        params["SpeechMarkTypes"] = ("word",)
+        params["Engine"] = "neural"
+        params["TextType"] =  "ssml"
         request_params = {**self.defaults, **params}
         return self.client.synthesize_speech(**request_params)
 
