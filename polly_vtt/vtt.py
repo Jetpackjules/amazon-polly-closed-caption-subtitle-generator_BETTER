@@ -15,7 +15,7 @@ class VTT:
         self.vtt = WebVTT()
 
     def remove_ssml_tags(self, text):
-        return (re.sub(r"\<[^>]*>", "", text)).replace("-", " ")
+        return (re.sub(r"\<[^>]*>", "", text)).replace("-", "\n")
 
     def to_sentences(self, response):
         return [
