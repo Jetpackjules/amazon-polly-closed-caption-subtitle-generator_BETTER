@@ -9,8 +9,7 @@ class Polly:
         self.client = boto3.client("polly")
         self.defaults = {
             "Engine": "neural",
-            "LanguageCode": "en-US",
-            "OutputFormat": "pcm",
+            "OutputFormat": "mp3",
             "SampleRate": "24000",
         }
 
@@ -50,6 +49,7 @@ class Polly:
         params["OutputFormat"] = "json"
         params["SpeechMarkTypes"] = ("word",)
         params["Engine"] = "neural"
+        params["SampleRate"] = "24000"
         params["TextType"] =  "ssml"
         request_params = {**self.defaults, **params}
         return self.client.synthesize_speech(**request_params)
@@ -65,3 +65,4 @@ class Polly:
             return "ogg"
         if format == "mp3":
             return "mp3"
+        
