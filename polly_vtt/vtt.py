@@ -15,7 +15,9 @@ class VTT:
         self.vtt = WebVTT()
 
     def remove_ssml_tags(self, text):
-        return (re.sub(r"\<[^>]*>", "", text)).replace("-", "\n").replace("\nminus", "-").replace("\nplus", "+").replace("RANK", "RANK:")
+        return (re.sub(r"\<[^>]*>", "", text)).replace("-", "\n").replace("\nminus", "-").replace("\nplus", "+").replace("RANK", "RANK:").replace("Power", "Power:").replace("Superhero", "Superhero:").replace("Antihero", "Antihero:").replace("Supervillain", "Supervillain:")
+
+
 
     def to_sentences(self, response):
         return [
